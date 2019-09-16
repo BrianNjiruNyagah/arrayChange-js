@@ -1,0 +1,29 @@
+function arrayChange(inputArray) {
+    //variable that shall keep track on how much the
+    //variables have been added to become an increasing sequence
+    var sum = 0;
+    //loops to check if the variables are in an increasing sequence 
+    for(var i = 0;i<inputArray.length-1;i++){
+        if(inputArray[i] >= inputArray[i+1]){
+            var array = [];          
+            array = check(inputArray[i],inputArray[i+1],sum);
+            sum = array[0]; 
+            //replacing of the variable inputArray[i+1] by the new 
+            //next value 
+            inputArray[i+1] = array[1];           
+        }
+    }  
+    return sum;
+}
+//functions is for obtaining the sum
+function check(current,next,sum){
+    //loops through adding the sum until the two variable
+    //current and next are in an increasing sequence
+    //while at the same time getting the value of sum 
+    //by adding the the value of sum unt an increasing sequence is obtained
+    while(current >= next){
+        next++;
+        sum++;
+    }
+    return [sum,next];
+}
